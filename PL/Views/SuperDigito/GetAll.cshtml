@@ -1,0 +1,51 @@
+﻿@model ML.SuperDigito
+@{
+    ViewData["Title"] = "GetAll";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <section>
+        <h2 class="text-center">Modulo de SuperDigito</h2>
+        <p>
+            En este modulo puedes <br />
+        </p>
+    </section>
+    <section>
+        <div style="float:right">
+            @Html.ActionLink(" Agregar", "Form", "Aseguradora", htmlAttributes: new { @class = "btn btn-success bi bi-person-add" })
+        </div>
+    </section>
+    <hr />
+
+    <p>
+
+    </p>
+    <section>
+        <table class="table table-warning table-striped table-bordered table-responsive-lg">
+            <thead class="table-danger">
+                <tr>                    
+                    <td class="visually-hidden">IdSuperDigito</td>
+                    <td class="text-center" style="font-weight:bold;">Numero</td>
+                    <td class="text-center" style="font-weight:bold;">Resultado</td>
+                    <td class="text-center" style="font-weight:bold;">FechaHora</td>                                                            
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (ML.SuperDigito superDigito in Model.SuperDigitos)
+                {
+                    <tr>
+                        @*<td class="text-center"><a class="btn btn-warning bi bi-pencil-square" href="@Url.Action("Form","Aseguradora", new { IdAseguradora = aseguradora.IdAseguradora })"></a></td>*@
+                        <td class="visually-hidden">@superDigito.IdSuperDigito</td>
+                        <td>@superDigito.Numero</td>
+                        <td>@superDigito.Resultado</td>
+                        <td>@superDigito.FechaHora</td>                        
+                       @* <td class="text-center"><a class="btn btn-danger bi bi-trash3" href="@Url.Action("Delete","Aseguradora", new { IdAseguradora = aseguradora.IdAseguradora })" onclick="return confirm('Estas seguro que deseas eliminar este registro?');"></a></td>*@
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </section>
+
+
+</div>
